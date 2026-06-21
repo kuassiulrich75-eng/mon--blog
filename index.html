@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Blog Automatique</title>
+
+<style>
+body {font-family: Arial; margin:0; background:#f4f4f4;}
+header {background:#111; color:white; padding:20px; text-align:center;}
+.container {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:20px;}
+.card {background:white; padding:15px; border-radius:10px;}
+footer {background:#111; color:white; text-align:center; padding:15px;}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Mon Blog Automatique</h1>
+<p>Articles générés automatiquement</p>
+</header>
+
+<div class="container" id="blog"></div>
+
+<footer>
+© 2026 Mon Blog
+</footer>
+
+<script>
+const topics = [
+"Gagner de l'argent en ligne",
+"Business sur internet",
+"Travailler avec son téléphone",
+"Marketing digital",
+"Freelance débutant",
+"Créer un site web rentable",
+"Revenus passifs",
+"Monétisation AdSense"
+];
+
+function generate() {
+    let title = topics[Math.floor(Math.random()*topics.length)];
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = "<h3>"+title+"</h3><p>Article automatique sur : "+title+"</p>";
+    document.getElementById("blog").prepend(card);
+}
+
+// générer automatiquement 6 articles
+for(let i=0;i<6;i++){
+    generate();
+}
+</script>
+
+</body>
+  </html>
